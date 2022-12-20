@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace XinFox\ThinkPHP\Oss\AliYun\Driver\Facade;
+namespace XinFox\ThinkPHP\Oss\AliYun\Facade;
 
 use think\Facade;
 use think\filesystem\Driver;
