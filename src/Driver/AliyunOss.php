@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace XinFox\ThinkPHP\Oss\AliYun\Driver;
 
-use League\Flysystem\AdapterInterface;
+use League\Flysystem\FilesystemAdapter;
 use think\filesystem\Driver;
 use XinFox\Flysystem\AliYun\AliYunOssAdapter;
 use XinFox\Flysystem\AliYun\OssClient;
@@ -18,7 +18,7 @@ class AliyunOss extends Driver
     /**
      * @throws \OSS\Core\OssException
      */
-    protected function createAdapter(): AdapterInterface
+    protected function createAdapter(): FilesystemAdapter
     {
         $config = $this->config;
         $client = new OssClient(
@@ -30,6 +30,6 @@ class AliyunOss extends Driver
             $config['request_proxy'] ?? null
         );
 
-        return new AliYunOssAdapter($client, $config['bucket'], $config['prefix'] ?? '', $config['options'] ?? []);
+        return new AliYunOssAdapter($client, $config['bucket']);
     }
 }
